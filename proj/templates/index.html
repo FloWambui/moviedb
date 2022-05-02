@@ -1,0 +1,46 @@
+{% extends 'base.html' %} {% block body %}
+<h1 class="text-center">Movies Cave</h1>
+<h4 class="text-center">Best of Movies right at your Screen</h4>
+{% for data in datum %}
+<style>
+  span {
+    font-size: 24px;
+    font-weight: 800;
+  }
+  .container-fluid {
+    color: white;
+  }
+  .container {
+    border: 2px solid black;
+    margin-bottom: 10px;
+    border-radius: 10px;
+  }
+  p {
+    font-size: 20px;
+  }
+  
+</style>
+<div class="container-fluid">
+  <div class="container">
+    <div class="row">
+      <div class="col">
+        <div class="img-fluid">
+          <img
+            src="{{'https://image.tmdb.org/t/p/w500/'+ data['poster_path']}}"
+            alt=""
+          />
+        </div>
+      </div>
+
+      <div class="col">
+        <p class="text-center pt-5"><span>Movie Name: </span> {{data.title}}</p>
+        <p class="pt-5"><span>Overview: </span>{{data.overview}}</p>
+        <p><span>Release Date: </span>{{data.release_date}}</p>
+        <p><span>Average Rating: </span>{{data.vote_average}}</p>
+    
+      </div>
+    </div>
+  </div>
+</div>
+
+{% endfor %} {% endblock body %}
